@@ -27,5 +27,38 @@ module Providers
 
       OpenStruct.new(text: JSON.parse(response.body)["text"])
     end
+
+    def translate(audio)
+      response = self.class.post(
+        '/openai/v1/audio/translations',
+        multipart: true,
+        body: {
+          file: audio,
+          model: 'whisper-large-v3',
+          temperature: 0,
+          response_format: 'json',
+        }
+      )
+
+      OpenStruct.new(text: JSON.parse(response.body)["text"])
+    end
+
+    def chat_completion(messages, model, options = {})
+      response = self.class.post(
+        '/openai/v1/chat/completions',
+        body: {
+          model: model,
+          messages: messages
+        }.merge(options).to_json
+      )
+      
+      parsed_response = JSON.parse(response.body)
+
+      if parsed_response["error"]
+        raise parsed_response["error"]["message"]
+      else
+        OpenStruct.new(response: parsed_response["choices"][0]["message"]["content"])
+      end
+    end
   end
 end

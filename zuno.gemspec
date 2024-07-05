@@ -21,9 +21,7 @@ Gem::Specification.new do |spec|
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   gemspec = File.basename(__FILE__)
-  spec.files = ["lib/zuno/version.rb", "lib/zuno.rb", "lib/zuno/chat.rb", "lib/providers/openai.rb",
-                "lib/providers/anthropic.rb", "lib/zuno/configuration.rb", "lib/zuno/transcription.rb",
-                "lib/providers/groq_cloud.rb"]
+  spec.files = Dir.glob("lib/**/*.rb")
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
