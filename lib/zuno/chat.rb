@@ -5,13 +5,13 @@ require "providers/anthropic"
 
 module Zuno
   OPENAI_MODELS = %w[gpt-3.5-turbo gpt-4-turbo gpt-4-turbo-preview].freeze
-  ANTHROPIC_MODELS = %w[claude-3-opus-20240229].freeze
+  ANTHROPIC_MODELS = %w[claude-3-5-sonnet-20240620 claude-3-opus-20240229 claude-3-sonnet-20240229 claude-3-haiku-20240307].freeze
 
   class << self
-    def chat(messages:, model:)
+    def chat(messages:, model:, **options)
       model ||= Zuno.configuration.chat_completion_model
       provider = provider_for_model(model)
-      provider.chat_completion(messages, model)
+      provider.chat_completion(messages, model, options)
     end
 
     private

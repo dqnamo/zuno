@@ -1,3 +1,5 @@
+require 'ostruct'
+
 module Providers
   class OpenAI
     def initialize
@@ -20,7 +22,11 @@ module Providers
         }.merge(options).to_json
       end
 
-      { response: response.body["choices"][0]["message"]["content"] }
+      if response.body["error"]
+        raise response.body["error"]["message"]
+      else
+        OpenStruct.new(response: response.body["choices"][0]["message"]["content"])
+      end
     end
   end
 end

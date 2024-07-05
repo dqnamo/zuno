@@ -1,5 +1,6 @@
 require 'httparty'
 require 'open-uri'
+require 'ostruct'
 
 module Providers
   class GroqCloud
@@ -24,7 +25,7 @@ module Providers
         }
       )
 
-      { text: JSON.parse(response.body)["text"] }
+      OpenStruct.new(text: JSON.parse(response.body)["text"])
     end
   end
 end

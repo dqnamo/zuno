@@ -1,3 +1,5 @@
+require 'ostruct'
+
 module Providers
   class Anthropic
     def initialize
@@ -7,20 +9,25 @@ module Providers
         faraday.adapter Faraday.default_adapter
       end
 
-      @api_key = Zuno.configuration.openai_api_key
+      @api_key = Zuno.configuration.anthropic_api_key
     end
 
     def chat_completion(messages, model, options = {})
-      response = @connection.post("/v1/chat/completions") do |req|
+      response = @connection.post("/v1/messages") do |req|
+        req.headers["x-api-key"] = @api_key
         req.headers["Content-Type"] = "application/json"
-        req.headers["Authorization"] = "Bearer #{@api_key}"
+        req.headers["anthropic-version"] = "2023-06-01"
         req.body = {
           model: model,
-          messages: messages
+          messages: messages,
         }.merge(options).to_json
       end
-
-      { response: response.body["choices"][0]["message"]["content"] }
+      
+      if response.body["error"]
+        raise response.body["error"]["message"]
+      else
+        OpenStruct.new(response: response.body["content"][0]["text"])
+      end
     end
   end
 end
