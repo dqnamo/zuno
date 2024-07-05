@@ -12,5 +12,6 @@ gem "minitest", "~> 5.16"
 gem "rubocop", "~> 1.21"
 
 gem "faraday"
+gem 'httparty'
 
 gem "byebug"

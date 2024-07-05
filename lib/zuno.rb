@@ -3,6 +3,7 @@
 require_relative "zuno/version"
 require_relative "zuno/configuration"
 require "zuno/chat"
+require "zuno/transcription"
 require "faraday"
 
 module Zuno
