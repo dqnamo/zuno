@@ -24,8 +24,10 @@ module Providers
 
       if response.body["error"]
         raise response.body["error"]["message"]
-      else
+      elsif response.body["choices"][0]["message"]["content"]
         OpenStruct.new(response: response.body["choices"][0]["message"]["content"])
+      elsif response.body["choices"][0]["message"]["tool_calls"]
+        OpenStruct.new(tool_calls: response.body["choices"][0]["message"]["tool_calls"])
       end
     end
   end

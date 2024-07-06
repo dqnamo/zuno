@@ -56,8 +56,10 @@ module Providers
 
       if parsed_response["error"]
         raise parsed_response["error"]["message"]
-      else
+      elsif parsed_response["choices"][0]["message"]["content"]
         OpenStruct.new(response: parsed_response["choices"][0]["message"]["content"])
+      elsif parsed_response["choices"][0]["message"]["tool_calls"]
+        OpenStruct.new(tool_calls: parsed_response["choices"][0]["message"]["tool_calls"])
       end
     end
   end
