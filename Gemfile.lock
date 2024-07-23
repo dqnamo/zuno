@@ -1,7 +1,9 @@
 PATH
   remote: .
   specs:
-    zuno (0.0.2)
+    zuno (0.1.2)
+      faraday
+      httparty
 
 GEM
   remote: https://rubygems.org/
