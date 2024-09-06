@@ -6,7 +6,6 @@ module Zuno
       @chat_completion_model = nil
       @openai_api_key = nil
       @anthropic_api_key = nil
-      @groq_cloud_api_key = nil
     end
   end
 end

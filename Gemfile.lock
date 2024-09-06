@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    zuno (0.1.2)
+    zuno (0.1.3)
+      event_stream_parser
       faraday
       httparty
 
@@ -12,6 +13,7 @@ GEM
     bigdecimal (3.1.8)
     byebug (11.1.3)
     csv (3.3.0)
+    event_stream_parser (1.0.0)
     faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
@@ -62,6 +64,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  event_stream_parser
   faraday
   httparty
   minitest (~> 5.16)

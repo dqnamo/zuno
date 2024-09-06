@@ -15,3 +15,5 @@ gem "faraday"
 gem 'httparty'
 
 gem "byebug"
+
+gem 'event_stream_parser'
