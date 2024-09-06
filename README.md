@@ -1,5 +1,8 @@
 <img src="https://www.zunogem.com/assets/simple-b9367a2e7e777c867890fc80a16a0de19675d3acac00bdcb4da76e1a3b8242ed.png" width="200">
 
+> [!CAUTION]
+> Not recommended to use in production. Still in development.
+
 # Zuno - AI Toolkit for Ruby
 
 Zuno is a Ruby gem that provides a simple interface for interacting with AI language models, focusing on OpenAI's GPT models and Anthropic's Claude models.
