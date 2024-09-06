@@ -1,7 +1,6 @@
 
 Welcome to Zuno! 👋 This Ruby gem provides a simple interface for interacting with AI language models, focusing on OpenAI's GPT models and Anthropic's Claude models.
 
-
 - Easy-to-use `chat` method for AI interactions
 - Support for multiple OpenAI and Anthropic models
 - Streaming responses for real-time updates
@@ -19,6 +18,7 @@ Then, run:
 
 ```bash
 bundle install
+```
 
 or install the gem directly:
 
@@ -53,9 +53,6 @@ end
 
 ## Supported Models
 
-
-## Supported Models
-
 - OpenAI:
   - `gpt-3.5-turbo`
   - `gpt-4o`
@@ -63,3 +60,22 @@ end
   - `gpt-4-turbo-preview`
   - `gpt-4`
   - `gpt-4-preview`
+  
+- Anthropic:
+  - `claude-3-opus-20240229`
+  - `claude-3-haiku-20240307`
+  - `claude-3-sonnet-20240229`
+  - `claude-3-5-sonnet-20240620`
+  - `claude-3-5-sonnet-20240607`
+  - `claude-3-5-sonnet-20240529`
+  - `claude-3-5-sonnet-20240513`
+  - `claude-3-5-sonnet-20240424`
+  - `claude-3-5-sonnet-20240419`
+
+## Contributing
+
+We welcome contributions to Zuno! Please read our [contributing guidelines](CONTRIBUTING.md) for more details.
+
+## License
+
+Zuno is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
