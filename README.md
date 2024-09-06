@@ -1,39 +1,65 @@
-# Zuno Chat Gem
 
-Hey there! 👋 Welcome to the Zuno chat gem. This Ruby package provides a simple interface for interacting with AI language models, with a focus on OpenAI's GPT models.
+Welcome to Zuno! 👋 This Ruby gem provides a simple interface for interacting with AI language models, focusing on OpenAI's GPT models and Anthropic's Claude models.
 
-## Features
 
 - Easy-to-use `chat` method for AI interactions
-- Support for multiple OpenAI models
-- Streaming responses capability
-- Flexible configuration options
-- Automatic provider selection based on the model
+- Support for multiple OpenAI and Anthropic models
+- Streaming responses for real-time updates
+- Configuration options for API keys and models
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem
+```ruby
+gem 'zuno'
+```
+
+Then, run:
+
+```bash
+bundle install
+
+or install the gem directly:
+
+```bash
+gem install zuno
+```
 
 ## Usage
+First, configure the gem with your API keys:
 
-TODO: Write usage instructions here
+```ruby
+Zuno.configure do |config|
+  config.openai_api_key = "your_openai_api_key"
+  config.anthropic_api_key = "your_anthropic_api_key"
+end
+```
 
-## Development
+Then, you can use the chat method to interact with the AI:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+response = Zuno.chat(messages: [{ role: "user", content: "Hello, AI!" }], model: "gpt-3.5-turbo")
+puts response.content
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+For streaming responses:
 
-## Contributing
+```ruby
+Zuno.chat(messages: [{ role: "user", content: "Count to 3." }], stream: true) do |chunk|
+    puts chunk.content
+end
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/zuno. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/zuno/blob/master/CODE_OF_CONDUCT.md).
+## Supported Models
 
-## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+## Supported Models
 
-## Code of Conduct
-
-Everyone interacting in the Zuno project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/zuno/blob/master/CODE_OF_CONDUCT.md).
+- OpenAI:
+  - `gpt-3.5-turbo`
+  - `gpt-4o`
+  - `gpt-4-turbo`
+  - `gpt-4-turbo-preview`
+  - `gpt-4`
+  - `gpt-4-preview`
