@@ -17,3 +17,6 @@ gem 'httparty'
 gem "byebug"
 
 gem 'event_stream_parser'
+
+# Only keep this line
+gem 'minitest-reporters', '~> 1.6'
