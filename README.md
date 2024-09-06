@@ -1,4 +1,4 @@
-Here's an improved version of the documentation in Markdown format:
+<img src="https://www.zunogem.com/assets/simple-b9367a2e7e777c867890fc80a16a0de19675d3acac00bdcb4da76e1a3b8242ed.png" width="200">
 
 # Zuno - AI Toolkit for Ruby
 
